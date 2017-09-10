@@ -4,9 +4,9 @@ var Schema = mongoose.Schema;
 
 
 var TaskSchema = new Schema({
-  name: {
+  title: {
     type: String,
-    required: 'Enter Task Name'
+    required: 'Enter Task title'
   },
   Created_date: {
     type: Date,
