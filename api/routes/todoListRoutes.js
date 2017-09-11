@@ -1,15 +1,25 @@
 'use strict';
 module.exports = function(app) {
-  var todoList = require('../controllers/todoListController');
+  var task = require('../controllers/taskController');
+  var contact = require('../controllers/contactController');
 
-  // todoList Routes
+  // task Routes
   app.route('/tasks/:owner')
-    .get(todoList.list_all_tasks)
-    .post(todoList.create_a_task);
-
+    .get(task.list_all_tasks)
+    .post(task.create_a_task);
 
   app.route('/tasks/:owner/:taskId')
-    .get(todoList.read_a_task)
-    .put(todoList.update_a_task)
-    .delete(todoList.delete_a_task);
+    .get(task.read_a_task)
+    .put(task.update_a_task)
+    .delete(task.delete_a_task);
+
+  // contact Routes
+  app.route('/contacts/:owner')
+    .get(contact.list_all_contacts)
+    .post(contact.create_a_contact);
+
+  app.route('/contacts/:owner/:contactId')
+    .get(contact.read_a_contact)
+    .put(contact.update_a_contact)
+    .delete(contact.delete_a_contact);
 };
